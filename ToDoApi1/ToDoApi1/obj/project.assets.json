@@ -11510,11 +11510,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\ToDoApi1\\ToDoApi1\\ToDoApi1.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\CRUD\\ToDoApi1\\ToDoApi1\\ToDoApi1.csproj",
       "projectName": "ToDoApi1",
-      "projectPath": "C:\\Users\\User\\source\\repos\\ToDoApi1\\ToDoApi1\\ToDoApi1.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\CRUD\\ToDoApi1\\ToDoApi1\\ToDoApi1.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\ToDoApi1\\ToDoApi1\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\CRUD\\ToDoApi1\\ToDoApi1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
