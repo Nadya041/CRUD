@@ -1,0 +1,85 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border-top: 5px solid rgb(253,189,31);
+}
+
+#menucontainer {
+    overflow: hidden;
+}
+
+#imgInMenu {
+    width: 45px;
+    height: 45px;
+}
+
+#menu {
+    list-style-type: none;
+    float: right;
+}
+
+    #menu li {
+        float: left;
+    }
+
+        #menu li a {
+            text-transform: uppercase;
+            text-align: center;
+            color: gray;
+            text-decoration: none;
+            font-family: 'Arial' font-size: 1.25em;
+            display: inline-block;
+            padding: 14px 16px;
+        }
+
+            #menu li a:hover {
+                color: white;
+                background-color: rgb(253,189,31);
+            }
+
+#taskTable {
+    border: 1 solid black;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+    #taskTable td, #taskTable th {
+        border: 1px solid #880E4F;
+        padding: 8px;
+        overflow: hidden;
+    }
+
+#optionsList li a {
+    text-transform: uppercase;
+    text-align: center;
+    color: gray;
+    text-decoration: none;
+    font-family: 'Arial' font-size: 1.25em;
+    display: inline-block;
+    padding: 14px 16px;
+}
+
+#formContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px;
+    height: 150px;
+}
+
+.submission-form {
+    padding: 0 10px;
+    width: 20%;
+    border: 2px solid #880E4F;
+    border-radius: 3px;
+}
+
+    .submission-form form input {
+        margin-bottom: 5px;
+        display: block;
+    }

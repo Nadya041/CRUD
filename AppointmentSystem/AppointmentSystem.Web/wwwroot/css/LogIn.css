@@ -1,0 +1,41 @@
+﻿body {
+    background-image: url(../images/rush-hour.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div {
+    width: 100%;
+}
+
+#contLog {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    margin-left: 100px;
+    color: white;
+}
+
+h2 {
+    margin-left: 100px;
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+section {
+    margin: 0px 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#tableContainer {
+    margin-top: 50px;
+    background-color: rgba(246, 237, 237, 0.7);
+}

@@ -1,0 +1,44 @@
+﻿body {
+    background-image: url(../images/rush-hour.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#imgInMenu {
+    width: 45px;
+    height: 45px;
+    float: right;
+}
+#tableContainer {
+    width: 80%;
+    background-color: rgba(252, 240, 240, 0.7);
+    margin: 0px 100px;
+    overflow: hidden;
+}
+
+#taskTable {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    overflow: hidden;
+}
+
+    #taskTable td, #taskTable th {
+        border: 1px solid #880E4F;
+        padding: 8px;
+        overflow: hidden;
+    }
+
+#optionsList {
+    list-style-type: none;
+}
+
+    #optionsList li a {
+        text-transform: uppercase;
+        text-align: center;
+        color: gray;
+        text-decoration: none;
+        font-family: 'Arial' font-size: 1.25em;
+        display: inline-block;
+        padding: 14px 0px;
+    }

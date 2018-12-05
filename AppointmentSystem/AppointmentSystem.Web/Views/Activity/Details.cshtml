@@ -1,0 +1,80 @@
+﻿@model AppointmentSystem.Web.Models.ActivityModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/css/Details.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-controller="LoggedUser" asp-action="Index">AppointmentSystem</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="active"><a asp-area="" asp-controller="User" asp-action="Index">Users</a></li>
+                    }
+
+                }
+                <li class="active"><a asp-area="" asp-controller="Appointment" asp-action="Index">Appointments</a></li>
+                <li class="active"><a asp-area="" asp-controller="Activity" asp-action="Index">Activity</a></li>
+                <li class="active"><a asp-area="" asp-controller="LoggedUser" asp-action="LogOut">Log Out</a></li>
+                <li class="active"><a asp-area="" asp-controller="User" asp-action="Profile">Hello, @User.Identity.Name</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div id="tableContainer">
+            <table id="taskTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Duration</th>
+                    <th>Price</th>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <th>Options</th>
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Duration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Price)
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <ul id="optionsList">
+                                <li>
+                                    <a class="inner-menu-item" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                                </li>
+                                <li>
+                                    <a class="inner-menu-item" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                                </li>
+                            </ul>
+                        </td>
+                    }
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

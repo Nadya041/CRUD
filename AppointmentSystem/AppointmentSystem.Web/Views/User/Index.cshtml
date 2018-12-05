@@ -1,0 +1,106 @@
+﻿@model UserIndexVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/css/Details.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url(../images/rush-hour.jpg);
+            background-position: top;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-controller="LoggedUser" asp-action="Index">AppointmentSystem</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="active"><a asp-area="" asp-controller="User" asp-action="Index">Users</a></li>
+                    }
+
+                }
+                <li class="active"><a asp-area="" asp-controller="Appointment" asp-action="Index">Appointments</a></li>
+                <li class="active"><a asp-area="" asp-controller="Activity" asp-action="Index">Activity</a></li>
+                <li class="active"><a asp-area="" asp-controller="LoggedUser" asp-action="LogOut">Log Out</a></li>
+                <li class="active"><a asp-area="" asp-controller="User" asp-action="Profile">Hello, @User.Identity.Name</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <form asp-action="Index" asp-controller="User" method="get">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <label asp-for="@Model.Filter.Name" class="control-label col-sm-2" style="color: white"></label>
+                    <input asp-for="@Model.Filter.Name" class="form-control col-sm-5" value="@Model.Filter.Name" />
+                </div>
+                <div class="col-sm-4">
+                    <label asp-for="@Model.Filter.Email" class="control-label col-sm-2" style="color: white"></label>
+                    <input asp-for="@Model.Filter.Email" class="form-control col-sm-5" value="@Model.Filter.Email" />
+                </div>
+                <input type="submit" value="Search" />
+            </div>
+        </form>
+        <div id="tableContainer">
+            <table id="taskTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Options</th>
+                </tr>
+
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            <ul id="optionsList">
+                                <li>
+                                    <a class="inner-menu-item" asp-action="Profile" asp-route-id="@item.Id">Details</a>
+                                </li>
+                                <li>
+                                    <a class="inner-menu-item" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                </li>
+                                <li>
+                                    <a class="inner-menu-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </section>
+</body>
+</html>

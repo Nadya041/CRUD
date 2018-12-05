@@ -1,0 +1,86 @@
+﻿@model AppointmentSystem.Web.Models.ActivityModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+    <link href="~/css/Details.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url(../images/rush-hour.jpg);
+            background-position: top;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-controller="LoggedUser" asp-action="Index">AppointmentSystem</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="active"><a asp-area="" asp-controller="User" asp-action="Index">Users</a></li>
+                    }
+
+                }
+                <li class="active"><a asp-area="" asp-controller="Appointment" asp-action="Index">Appointments</a></li>
+                <li class="active"><a asp-area="" asp-controller="Activity" asp-action="Index">Activity</a></li>
+                <li class="active"><a asp-area="" asp-controller="LoggedUser" asp-action="LogOut">Log Out</a></li>
+                <li class="active"><a asp-area="" asp-controller="User" asp-action="Profile">Hello, @User.Identity.Name</a></li>
+            </ul>
+            <a asp-action="Create">
+                <img src="~/images/icon128-2x.png" id="imgInMenu">
+            </a>
+        </div>
+    </nav>
+    <div id="contLog">
+        <div>
+            <h1>Edit Activity</h1>
+            <form asp-action="Edit" class="form-horizontal">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Name" type="text" value=@Model.Name class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Duration" class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Duration" type="text" value=@Model.Duration class="form-control" />
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label col-sm-2"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Price" type="text" value=@Model.Price class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <input type="hidden" value=@Model.Id />
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-5">
+                        <input type="submit" value="Edit" class="btn btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
